@@ -11,6 +11,8 @@
 
 #include <iostream>
 
+//buddy
+
 int main() {
 
     // Image
