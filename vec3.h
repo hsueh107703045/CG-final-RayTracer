@@ -101,6 +101,5 @@ inline vec3 unit_vector(vec3 v) {
 }
 
 
+
 #endif
-
-
