@@ -14,7 +14,10 @@
 #include <iostream>
 //#include "color.h"
 //#include "vec3.h"
-
+//#include "pnoise.h"
+#include "perlinEXAMPLE.h"
+#include "pnoise.h"
+#include <cmath>
 
 int main() {
 
@@ -30,9 +33,15 @@ int main() {
 	for (int j = image_height-1; j >= 0; --j) {
 		std::cerr << "\rScanlines remaining: " << j << ' ' << std::flush;
 		for (int i = 0; i < image_width; ++i) {
-		    auto r = double(i) / (image_width-1);
-            auto g = double(j) / (image_height-1);
+			auto r = perlin(5*double(i) / (image_width-1),5*double(j) / (image_height-1));//double(i) / (image_width-1);
+			auto g = double(j) / (image_height-1);
             auto b = 0.25;
+			
+			r += 1;
+			r = r/2;
+
+			g = r;
+			b = r;
 
             int ir = static_cast<int>(255.999 * r);
             int ig = static_cast<int>(255.999 * g);
